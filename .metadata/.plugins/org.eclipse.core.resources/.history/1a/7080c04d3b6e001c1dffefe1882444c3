@@ -1,0 +1,27 @@
+package stack;
+import java.util.*;
+public class NextSmallerElement {
+
+	public static void main(String[] args) {
+		int arr[] = {5,15,20,25,12,20};
+		nextSmaller(arr);
+
+	}
+
+	private static void nextSmaller(int[] arr) {
+		Stack<Integer> st = new Stack<>();
+		for(int i=arr.length;i>=0;i--) {
+			while(!st.isEmpty() && st.peek()<=arr[i]) {
+				st.pop();
+			}
+			if(st.isEmpty()) {
+				System.out.println(-1);
+			}else {
+				System.out.println(st.peek());
+			}
+			st.push(arr[i]);
+		}
+		
+	}
+
+}

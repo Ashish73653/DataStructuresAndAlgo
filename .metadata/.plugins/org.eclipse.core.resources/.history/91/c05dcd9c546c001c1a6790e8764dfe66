@@ -1,0 +1,14 @@
+package multithreading;
+
+class BookTickets{
+	
+}
+
+public class SynchronizationEx {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

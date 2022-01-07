@@ -1,0 +1,30 @@
+package stack;
+
+import java.util.Stack;
+
+public class ReverseStack {
+
+	public void reverse(Stack<Integer> s) {
+		if(s.isEmpty()) {
+			return;
+		}
+		int top = s.pop();
+		reverse(s);
+		s.push(top);
+	}
+	public static void main(String[] args) {
+		Stack<Integer> st = new Stack<>();
+		st.push(1);
+		st.push(2);
+		st.push(3);
+		st.push(4);
+		ReverseStack rs = new ReverseStack();
+		rs.reverse(st);
+		while(!st.isEmpty()) {
+			System.out.println(st.peek());
+			st.pop();
+		}
+
+	}
+
+}

@@ -1,0 +1,39 @@
+package multithreading;
+
+class Tables{
+	void printTable(int n) {
+		for(int i=0;i<5;i++) {
+			System.out.println(n*i);
+		}
+	}
+}
+class MyThread1 extends Thread{
+	Tables t;
+	MyThread1(Tables t){
+		this.t = t;
+	}
+	public void run() {
+		t.printTable(5);
+	}
+}
+class MyThread2 extends Thread{
+	Tables t;
+	MyThread2(Tables t){
+		this.t = t;
+	}
+	public void run() {
+		t.printTable(10);
+	}
+}
+
+public class SynchronizationEx {
+
+	public static void main(String[] args) {
+		Tables obj = new Tables();
+		MyThread1 t1 = new MyThread1(obj);
+		MyThread2 t2 = new MyThread2(obj);
+		t1.start();
+		t2.start();
+	}
+
+}

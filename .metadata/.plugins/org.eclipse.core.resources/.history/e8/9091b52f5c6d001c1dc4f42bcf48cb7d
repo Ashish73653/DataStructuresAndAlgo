@@ -1,0 +1,92 @@
+package linkedList;
+
+
+public class PalindromeLL {
+	static Node head;
+	class Node{
+		int data;
+		Node next;
+		Node(int data){
+			this.data = data;
+			this.next = null;
+		}
+	}
+	public void addFirst(int data) {
+		Node newNode = new Node(data);
+		if(head==null) {
+			head = newNode;
+			return;
+		}
+		newNode.next = head;
+		head = newNode;
+	}
+	public void addLast(int data) {
+		Node newNode = new Node(data);
+		if(head == null) {
+			head = newNode;
+			return;
+		}
+		Node currNode = head;
+		while(currNode.next!=null) {
+			currNode = currNode.next;
+		}
+		currNode.next = newNode;
+	}
+	public void printList() {
+		Node curr = head;
+		while(curr!=null) {
+			System.out.print(curr.data+"->");
+			curr = curr.next;
+		}
+		System.out.print("NULL");
+		System.out.println();
+	}
+	public int size() {
+		int size = 0;
+		Node currNode = head;
+		while(currNode!=null) {
+			size++;
+			currNode = currNode.next;
+		}
+		return size;
+	}
+	public void reverseIterate(Node head) {
+		Node prev = head;
+		Node curr = head.next;
+		while(curr!=null) {
+			Node next = curr.next;
+			curr.next = prev;
+			// update
+			prev = curr;
+			curr = next;
+		}
+		head.next = null;
+		head = prev;
+	}
+	public void checkPalindrome() {
+		PalindromeLL ll = new PalindromeLL();
+		boolean check = false;
+		Node newHead = head;
+		Node first = head;
+		int size = ll.size();
+		int mid = size/2;
+		int idx = 0;
+		while(idx!=mid) {
+			newHead = newHead.next;
+			idx++;
+		}
+		System.out.println(newHead.data);
+		ll.reverseIterate(newHead);
+//		return check;
+	}
+	public static void main(String[] args) {
+		PalindromeLL ll = new PalindromeLL();
+		ll.addFirst(1);
+		ll.addLast(2);
+		ll.addLast(3);
+		ll.addLast(1);
+		ll.printList();
+		ll.checkPalindrome();
+	}
+
+}

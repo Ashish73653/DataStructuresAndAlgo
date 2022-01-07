@@ -1,0 +1,35 @@
+package multithreading;
+
+class BookTicket2{
+	int TotalSeats=10;
+	synchronized void book(int seats) {
+		if(TotalSeats >= seats) {
+			System.out.println("Seat booked..."+seats);
+			TotalSeats = TotalSeats - seats;
+			System.out.println("Remaining seats:  "+TotalSeats);
+		}else {
+			System.out.println("Can't be booked because only "+TotalSeats+" are available...");
+		}
+	}
+	
+}
+
+public class SynchroBlock {
+
+	static BookTicket2 b;
+	int seats;
+	public void run() {
+		b.book(seats);
+	}
+	public static void main(String[] args) {
+		b  = new BookTicket2();
+		SynchroBlock ashish = new SynchroBlock();
+		ashish.seats = 6;
+		ashish.start();
+		SynchroBlock karan  = new SynchroBlock();
+		karan.seats = 7;
+		karan.start();
+
+	}
+
+}

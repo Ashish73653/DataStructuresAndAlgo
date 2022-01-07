@@ -1,0 +1,19 @@
+package javaIOPackage;
+import java.io.*;
+public class FileInput {
+
+	public static void main(String[] args) {
+		try {
+			FileInputStream fin = new FileInputStream("/media/ashish/New Volume/Hello.txt");
+			while(fin.read()!=-1) {
+				int i = fin.read();
+				System.out.print((char)i);
+			}
+			fin.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}

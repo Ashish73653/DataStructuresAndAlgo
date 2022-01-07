@@ -1,0 +1,17 @@
+package javaIOPackage;
+import java.io.*;
+
+public class FileOutputStream {
+
+
+	public static void main(String[] args) {
+		try {
+//			FileOutputStream fout = new FileOutputStream("/media/ashish/New Volume/Hello.txt");
+//			fout.write(65);
+		}catch(Exception e) {
+			
+		}
+
+	}
+
+}

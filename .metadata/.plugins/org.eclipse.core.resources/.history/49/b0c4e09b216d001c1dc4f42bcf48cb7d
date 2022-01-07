@@ -1,0 +1,19 @@
+package javaIOPackage;
+import java.io.*;
+
+public class FileOutput {
+
+
+	public static void main(String[] args) {
+		try {
+			FileOutputStream fout = new FileOutputStream("/media/ashish/New Volume/Hello.txt");
+			fout.write(64);
+			fout.close();
+			System.out.println("Success...");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+}
