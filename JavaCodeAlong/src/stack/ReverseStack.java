@@ -19,10 +19,14 @@ public class ReverseStack {
 		st.push(3);
 		st.push(4);
 		ReverseStack rs = new ReverseStack();
-		Stack<Integer> stack = rs.reverse(st);
-		while(!stack.isEmpty()) {
-			System.out.println(stack.peek());
-			stack.pop();
+//		Stack<Integer> stack = rs.reverse(st);
+//		while(!stack.isEmpty()) {
+//			System.out.println(stack.peek());
+//			stack.pop();
+//		}
+		while(!st.isEmpty()) {
+			System.out.println(st.peek());
+			st.pop();
 		}
 	}
 }
